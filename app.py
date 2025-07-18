@@ -47,6 +47,10 @@ class Mark(db.Model):
     exam_type = db.Column(db.String(20), nullable=False)  # quiz, test, exam
     date = db.Column(db.DateTime, default=datetime.utcnow)
 
+# Initialize database tables
+with app.app_context():
+    db.create_all()
+
 # Routes
 @app.route('/')
 def index():
